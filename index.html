@@ -1,52 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rupesh Hankare | Cybersecurity Leader</title>
 
 <style>
+:root {
+  --bg: #0b0f14;
+  --card: #111827;
+  --border: #1f2937;
+  --accent: #00ffcc;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b0f14;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
   color: #e6edf3;
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding: 60px 20px;
+  padding: 40px 20px;
   background: linear-gradient(135deg, #000, #111);
 }
 
 .hero h1 {
-  font-size: 42px;
+  font-size: 28px;
   margin: 0;
 }
 
 .hero p {
-  color: #00ffcc;
+  color: var(--accent);
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.6;
 }
 
 /* SECTION */
 .section {
-  padding: 40px 20px;
+  padding: 25px 15px;
   max-width: 1000px;
   margin: auto;
 }
 
-/* CARD */
-.card {
-  background: #111827;
-  padding: 20px;
-  margin: 15px 0;
-  border-radius: 10px;
-  transition: 0.3s;
-  border: 1px solid #1f2937;
+.section h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(0,255,204,0.2);
+/* CARD */
+.card {
+  background: var(--card);
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Hover (desktop only) */
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0,255,204,0.2);
+  }
 }
 
 /* MATRIX BG */
@@ -56,8 +77,15 @@ canvas {
   left: 0;
   z-index: -1;
 }
-</style>
 
+/* Desktop enhancements */
+@media (min-width: 768px) {
+  .hero h1 { font-size: 42px; }
+  .hero p { font-size: 16px; }
+  .section { padding: 40px 20px; }
+  .card { padding: 20px; font-size: 15px; }
+}
+</style>
 </head>
 
 <body>
@@ -66,66 +94,54 @@ canvas {
 
 <div class="hero">
   <h1>Rupesh Hankare</h1>
-  <p>Cybersecurity Leader | CISO | vCISO | SOC Setup & Transformation | Threat Intelligence | Incident Response | Vulnerability Management | Brand Protection | TPRM | Offensive Security AI Security</p>
+  <p>Cybersecurity Leader | CISO | vCISO | SOC Transformation | Threat Intelligence | AI Security</p>
 </div>
 
 <div class="section">
   <h2>WhoAmI</h2>
   <div class="card">
-    Cybersecurity Leader | CISO | vCISO with 15+ years of experience driving enterprise security transformation. Specialized in SOC setup & transformation, threat intelligence, incident response, vulnerability management, brand protection, TPRM, offensive security, and AI-powered security—delivering proactive, intelligence-driven defense strategies at scale.
+    Cybersecurity Leader with 15+ years driving enterprise security transformation across SOC, threat intelligence, incident response, vulnerability management, and AI-driven security.
   </div>
 </div>
 
 <div class="section">
   <h2>Skills</h2>
   <div class="card">
-    CISO | Threat Intelligence | Incident Response | Threat Huntung | SIEM | SOAR | USE CASE | UEBA | Red Teaming | Vulnerability Management | TPRM
+    CISO | Threat Intelligence | Incident Response | Threat Hunting | SIEM | SOAR | UEBA | Red Teaming | Vulnerability Management | TPRM
   </div>
 </div>
 
 <div class="section">
-  <h2>Areas of Intrest</h2>
+  <h2>Areas of Interest</h2>
   <div class="card">
-• vCISO<br>
-• Security Operations & Incident Management/ Response <br>
-• Threat Intelligence and Hunting<br>
-• Vulnerability Management<br>
-• Offensive Security – Red Team<br>
-• Digital Fraud Detection & Prevention - Brand Protection<br>
-• Leadership<br>
-• Risk Assessment / Impact Analysis<br>
-• Perimeter & Endpoint Security<br>
-• Risk & Exception Management<br>
-• Cyber Defence Budget & Optimization<br>
-• Portfolio Management<br>
-• Project Management and Team<br>
+    • vCISO<br>
+    • Security Operations & Incident Response<br>
+    • Threat Intelligence & Hunting<br>
+    • Vulnerability Management<br>
+    • Offensive Security (Red Team)<br>
+    • Digital Fraud & Brand Protection<br>
+    • Risk Assessment & Leadership
   </div>
 </div>
 
 <div class="section">
   <h2>Technical Competency</h2>
   <div class="card">
-• SOC Design & Strategy (Built/migrated 3 SOCs from scratch, 2 RFPs led) <br>
-• Threat Intelligence & Threat Hunting built & Defined Strong Governance <br>
-• Security Automation (SOAR) & UEBA Deployment <br>
-• Incident Response Strategy & Governance <br>
-• Purple Team Formation & Offensive Security <br>
-• Vulnerability Management Program Ownership <br>
-• Digital Fraud, Brand Protection, ASM & CTEM <br>
-• SIEM & Security Technology Evaluation <br>
-• Deception Technology Implementation strategy <br>
+    • SOC Design & Strategy<br>
+    • Threat Intelligence & Hunting<br>
+    • SOAR & UEBA Deployment<br>
+    • Incident Response Governance<br>
+    • Red Team & Purple Team<br>
+    • Vulnerability Management Programs
   </div>
 </div>
 
-
-
 <div class="section">
   <h2>Key Achievements</h2>
-  <div class="card">🏆 Chairman Award – Cyber Defence & Command Centre</div>
-  <div class="card">🔄 3 SOC Migrations + 1 Built from Scratch</div>
-  <div class="card">🚨 100+ Incident Response Cases Investigated</div>
-  <div class="card">🛡️ 200+ Vulnerability Management Program including AnnualVAPT Program, Crown Jewels & AI enabled web applications</div>
-  <div class="card">🎯 15+ Red Team Engagements with eye opening findings and remediation upto 90%</div>
+  <div class="card">🏆 Chairman Award – Cyber Defence Centre</div>
+  <div class="card">🚨 100+ Incident Response Cases</div>
+  <div class="card">🛡️ 200+ Vulnerability Programs</div>
+  <div class="card">🎯 15+ Red Team Engagements</div>
 </div>
 
 <div class="section">
@@ -133,33 +149,17 @@ canvas {
 
   <div class="card">
     <b>Director – PwC (2026–Present)</b><br>
-    Leading enterprise cybersecurity programs for major banking clients.
+    Leading enterprise cybersecurity programs.
   </div>
 
   <div class="card">
-    <b>Aditya Birla Group (Oct 2018– Feb 2026)<br>Head of Group Vulnerability Management,<br> Head of Group Offensive Security,<br> Head of Group Threat Intelligence & Incident Response,<br> Head of Group Brand Protection </b><br>
-    Built Cyber Defence & Command Center, led SOC transformation, Threat intelligence, Thret Hutning, SOAR, UEBA, Threat Hunting.
-  </div>
-
- <div class="card">
-    <b>CISO at Aditya Birla Group - (Jan 2016 - Sept 2018)</b><br>
-    Chief Information Security Officer (CISO) responsible for defining and executing enterprise cybersecurity strategy, managing risk, and leading security operations to protect business assets, data, and brand.
-
+    <b>Aditya Birla Group</b><br>
+    SOC transformation, threat intelligence, SOAR, UEBA.
   </div>
 
   <div class="card">
-    <b>Reliance Jio (2013–2016)</b><br>
-    SIEM operations, threat monitoring, L2/L3 investigations.
-  </div>
-
- <div class="card">
-    <b>Wipro Infotech ( August 2013 - November 2013)</b><br>
-    Leading enterprise cybersecurity programs for major banking clients.
-  </div>
-
- <div class="card">
-    <b>Capgemini - ( August 2010 - August 2012 )</b><br>
-    SOC monitoring and risk remediation - L1
+    <b>Reliance Jio</b><br>
+    SIEM operations and threat monitoring.
   </div>
 
 </div>
@@ -168,28 +168,29 @@ canvas {
   <h2>Contact</h2>
   <div class="card">
     📧 rupesh.hankare@gmail.com<br>
-    🔗 LinkedIn: linkedin.com/in/rupesh-hankare<br>
+    🔗 linkedin.com/in/rupesh-hankare<br>
     🌐 cloudgenai.ai
   </div>
 </div>
 
 <script>
-// Matrix Animation
+// Mobile-optimized Matrix Animation
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
+function resizeCanvas() {
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+}
+resizeCanvas();
 
 const letters = "01";
-const fontSize = 14;
+const fontSize = window.innerWidth < 768 ? 10 : 14;
 const columns = canvas.width / fontSize;
-const drops = [];
-
-for (let x = 0; x < columns; x++) drops[x] = 1;
+const drops = Array(Math.floor(columns)).fill(1);
 
 function draw() {
-  ctx.fillStyle = "rgba(0,0,0,0.05)";
+  ctx.fillStyle = "rgba(0,0,0,0.06)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = "#00ffcc";
@@ -199,14 +200,15 @@ function draw() {
     const text = letters[Math.floor(Math.random() * letters.length)];
     ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.97) {
       drops[i] = 0;
     }
     drops[i]++;
   }
 }
 
-setInterval(draw, 33);
+setInterval(draw, window.innerWidth < 768 ? 60 : 33);
+window.addEventListener("resize", resizeCanvas);
 </script>
 
 </body>
