@@ -3,233 +3,396 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Rupesh Hankare | Cybersecurity Leader</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 <style>
-:root {
-  --bg: #0b0f14;
-  --card: #111827;
-  --border: #1f2937;
-  --accent: #00ffcc;
+:root{
+--bg:#070a0f;
+--accent:#00ffcc;
+--card:rgba(17,24,39,0.75);
+--border:rgba(0,255,204,0.15);
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
-  color: #e6edf3;
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:#e6edf3;
 }
+
+/* NAV */
+nav{
+position:sticky;
+top:0;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+display:flex;
+gap:14px;
+padding:10px;
+overflow-x:auto;
+z-index:100;
+}
+
+nav a{
+color:#aaa;
+text-decoration:none;
+font-size:13px;
+white-space:nowrap;
+}
+
+nav a.active{color:var(--accent);}
 
 /* HERO */
-.hero {
-  text-align: center;
-  padding: 40px 20px;
-  background: linear-gradient(135deg, #000, #111);
+.hero{
+text-align:center;
+padding:60px 20px;
 }
 
-.hero h1 {
-  font-size: 28px;
-  margin: 0;
+.hero h1{
+margin:0;
+font-size:32px;
 }
 
-.hero p {
-  color: var(--accent);
-  font-size: 14px;
-  margin-top: 10px;
-  line-height: 1.6;
+#typing{
+color:var(--accent);
+margin-top:10px;
+min-height:24px;
+font-size:14px;
+}
+
+/* BUTTON */
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 16px;
+border:1px solid var(--accent);
+border-radius:8px;
+cursor:pointer;
+}
+
+.btn:hover{
+background:var(--accent);
+color:#000;
 }
 
 /* SECTION */
-.section {
-  padding: 25px 15px;
-  max-width: 1000px;
-  margin: auto;
+.section{
+max-width:1100px;
+margin:auto;
+padding:30px 15px;
 }
 
-.section h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+.section h2{
+border-left:3px solid var(--accent);
+padding-left:10px;
 }
 
 /* CARD */
-.card {
-  background: var(--card);
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  font-size: 14px;
-  line-height: 1.6;
+.card{
+background:var(--card);
+padding:16px;
+border-radius:12px;
+margin:10px 0;
+border:1px solid var(--border);
 }
 
-/* Hover (desktop only) */
-@media (hover: hover) {
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(0,255,204,0.2);
-  }
+/* GRID */
+.grid{
+display:grid;
+gap:12px;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
 }
 
-/* MATRIX BG */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
+/* SKILL BAR */
+.skill-bar{margin:10px 0;}
+.bar{height:6px;background:#111;border-radius:10px;overflow:hidden;}
+.bar span{display:block;height:100%;width:0;background:var(--accent);}
+
+/* TERMINAL */
+.terminal{
+display:none;
+background:#000;
+color:#00ff00;
+font-family:monospace;
+padding:15px;
+margin:10px;
+border-radius:8px;
+overflow-x:auto;
 }
 
-/* Desktop enhancements */
-@media (min-width: 768px) {
-  .hero h1 { font-size: 42px; }
-  .hero p { font-size: 16px; }
-  .section { padding: 40px 20px; }
-  .card { padding: 20px; font-size: 15px; }
+/* COUNTER */
+.counter{
+position:fixed;
+bottom:10px;
+right:10px;
+font-size:11px;
+opacity:0.6;
+}
+
+/* MATRIX */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+@media(max-width:768px){
+.hero h1{font-size:26px;}
 }
 </style>
 </head>
 
 <body>
 
+<nav>
+<a href="#who">WhoAmI</a>
+<a href="#skills">Capabilities</a>
+<a href="#areas">Focus</a>
+<a href="#tech">Technical</a>
+<a href="#achievements">Achievements</a>
+<a href="#exp">Experience</a>
+<a href="#contact">Contact</a>
+<a onclick="toggleTerminal()">Terminal</a>
+</nav>
+
 <canvas id="matrix"></canvas>
 
 <div class="hero">
-  <h1>Rupesh Hankare</h1>
-  <p>Cybersecurity Leader | CISO | vCISO | SOC Transformation | Threat Intelligence | AI Security</p>
+<h1>Rupesh Hankare</h1>
+<div id="typing"></div>
+<div class="btn" onclick="downloadResume()">Download Resume</div>
 </div>
 
-<div class="section">
-  <h2>WhoAmI</h2>
-  <div class="card">
-    Cybersecurity Leader with 15+ years driving enterprise security transformation across SOC, threat intelligence, incident response, vulnerability management, and AI-driven security.
-  </div>
+<div class="terminal" id="terminal">
+> whoami  
+Cybersecurity Leader | CISO | vCISO  
+> capabilities  
+Enterprise Security | Threat Intelligence | SOC Transformation  
 </div>
 
-<div class="section">
-  <h2>Skills</h2>
-  <div class="card">
-    CISO | Threat Intelligence | Incident Response | Threat Hunting | SIEM | SOAR | UEBA | Red Teaming | Vulnerability Management | TPRM
-  </div>
+<!-- WHO -->
+<div class="section" id="who">
+<h2>WhoAmI</h2>
+<div class="card">
+Cybersecurity Leader with 15+ years driving enterprise security transformation across SOC, threat intelligence, incident response, vulnerability management, and AI-driven security.
+</div>
 </div>
 
-<div class="section">
-  <h2>Areas of Interest</h2>
-  <div class="card">
-    • vCISO<br>
-    • Security Operations & Incident Response<br>
-    • Threat Intelligence & Hunting<br>
-    • Vulnerability Management<br>
-    • Offensive Security (Red Team)<br>
-    • Digital Fraud & Brand Protection<br>
-    • Risk Assessment & Leadership
-  </div>
-</div>
+<!-- SKILLS -->
+<div class="section" id="skills">
+<h2>Core Capabilities</h2>
 
-<div class="section">
-  <h2>Technical Competency</h2>
-  <div class="card">
-    • SOC Design & Strategy<br>
-    • Threat Intelligence & Hunting<br>
-    • SOAR & UEBA Deployment<br>
-    • Incident Response Governance<br>
-    • Red Team & Purple Team<br>
-    • Vulnerability Management Programs
-  </div>
-</div>
-
-<div class="section">
-  <h2>Key Achievements</h2>
-  <div class="card">🏆 Chairman Award – Cyber Defence Centre</div>
-  <div class="card">🚨 100+ Incident Response Cases</div>
-  <div class="card">🛡️ 200+ Vulnerability Programs</div>
-  <div class="card">🎯 15+ Red Team Engagements</div>
-</div>
-
-<div class="section">
-  <h2>Experience</h2>
-
-  <div class="card">
-    <b>Director – PwC (2026–Present)</b><br>
-    Leading enterprise cybersecurity programs.
-  </div>
-
-  <div class="card">
-    <b>Aditya Birla Group (Oct 2018– Feb 2026)<br>
-Head of Group Vulnerability Management,<br>
-Head of Group Offensive Security,<br>
-Head of Group Threat Intelligence & Incident Response,<br>
-Head of Group Brand Protection</b><br>
-    Built Cyber Defence & Command Center, led SOC transformation, Threat intelligence, Thret Hutning, SOAR, UEBA, Threat Hunting.
-  </div>
+<div class="grid">
 
 <div class="card">
-    <b>CISO at Aditya Birla Group - (Jan 2016 - Sept 2018)</b><br>
-    Chief Information Security Officer (CISO) responsible for defining and executing enterprise cybersecurity strategy, managing risk, and leading security operations to protect business assets, data, and brand.
-  </div>
-
-  <div class="card">
-    <b>Reliance Jio (2013–2016)</b><br>
-    SIEM operations, threat monitoring, L2/L3 investigations.
-  </div>
+<b>Security Leadership & Strategy</b>
+<div class="skill-bar">Cybersecurity Strategy<div class="bar"><span data-width="95%"></span></div></div>
+<div class="skill-bar">Risk Management & Governance<div class="bar"><span data-width="92%"></span></div></div>
+<div class="skill-bar">vCISO Advisory<div class="bar"><span data-width="90%"></span></div></div>
+</div>
 
 <div class="card">
-    <b>Wipro Infotech ( August 2013 - November 2013)</b><br>
-    Leading enterprise cybersecurity programs for major banking clients.
-  </div>
-  
-  
-  <div class="card">
-    <b>Capgemini - ( August 2010 - August 2012 )</b><br>
-    SOC monitoring and risk remediation - L1
-  </div>
+<b>Security Operations & Incident Response</b>
+<div class="skill-bar">SOC Transformation<div class="bar"><span data-width="95%"></span></div></div>
+<div class="skill-bar">Incident Response Leadership<div class="bar"><span data-width="93%"></span></div></div>
+<div class="skill-bar">Threat Detection & Monitoring<div class="bar"><span data-width="91%"></span></div></div>
+</div>
 
+<div class="card">
+<b>Threat Intelligence & Offensive Security</b>
+<div class="skill-bar">Threat Intelligence<div class="bar"><span data-width="96%"></span></div></div>
+<div class="skill-bar">Threat Hunting<div class="bar"><span data-width="92%"></span></div></div>
+<div class="skill-bar">Red / Purple Teaming<div class="bar"><span data-width="88%"></span></div></div>
+</div>
+
+<div class="card">
+<b>Security Engineering & Platforms</b>
+<div class="skill-bar">SIEM / SOAR<div class="bar"><span data-width="90%"></span></div></div>
+<div class="skill-bar">UEBA & Analytics<div class="bar"><span data-width="87%"></span></div></div>
+<div class="skill-bar">Security Automation<div class="bar"><span data-width="89%"></span></div></div>
+</div>
+
+<div class="card">
+<b>Vulnerability & Risk Programs</b>
+<div class="skill-bar">Vulnerability Management<div class="bar"><span data-width="94%"></span></div></div>
+<div class="skill-bar">Third-Party Risk (TPRM)<div class="bar"><span data-width="88%"></span></div></div>
+<div class="skill-bar">Attack Surface Management<div class="bar"><span data-width="86%"></span></div></div>
+</div>
+
+<div class="card">
+<b>Emerging & Advanced Security</b>
+<div class="skill-bar">AI Security<div class="bar"><span data-width="85%"></span></div></div>
+<div class="skill-bar">Digital Fraud & Brand Protection<div class="bar"><span data-width="90%"></span></div></div>
+<div class="skill-bar">Cyber Threat Intelligence Platforms<div class="bar"><span data-width="91%"></span></div></div>
+</div>
+
+</div>
+</div>
+
+<!-- AREAS -->
+<div class="section" id="areas">
+<h2>Areas of Interest</h2>
+<div class="grid">
+<div class="card">vCISO</div>
+<div class="card">Security Operations & Incident Response</div>
+<div class="card">Threat Intelligence & Hunting</div>
+<div class="card">Vulnerability Management</div>
+<div class="card">Offensive Security (Red Team)</div>
+<div class="card">Risk Assessment & Leadership</div>
+</div>
+</div>
+
+<!-- TECH -->
+<div class="section" id="tech">
+<h2>Technical Competency</h2>
+<div class="card">
+SOC Design & Strategy, Threat Intelligence, SOAR & UEBA, Incident Response Governance, Red/Purple Teaming, Vulnerability Programs
+</div>
+</div>
+
+<!-- ACHIEVEMENTS -->
+<div class="section" id="achievements">
+<h2>Key Achievements</h2>
+<div class="grid">
+<div class="card">🏆 Chairman Award – Cyber Defence Centre</div>
+<div class="card">🚨 100+ Incident Response Cases</div>
+<div class="card">🛡️ 200+ Vulnerability Programs</div>
+<div class="card">🎯 15+ Red Team Engagements</div>
+</div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section" id="exp">
+<h2>Experience</h2>
+
+<div class="card"><b>Director – PwC (2026–Present)</b><br>Leading enterprise cybersecurity programs.</div>
+
+<div class="card"><b>Aditya Birla Group (2018–2026)</b><br>
+Head of Vulnerability Management, Offensive Security, Threat Intelligence & Incident Response, Brand Protection.<br>
+Built Cyber Defence & Command Center, SOC transformation, SOAR, UEBA.
+</div>
+
+<div class="card"><b>CISO – Aditya Birla Group (2016–2018)</b><br>
+Enterprise cybersecurity strategy, risk management, and security operations leadership.
+</div>
+
+<div class="card"><b>Reliance Jio (2013–2016)</b><br>SIEM operations, threat monitoring, investigations.</div>
+
+<div class="card"><b>Wipro Infotech (2013)</b></div>
+<div class="card"><b>Capgemini (2010–2012)</b></div>
 
 </div>
 
-<div class="section">
-  <h2>Contact</h2>
-  <div class="card">
-    📧 rupesh.hankare@gmail.com<br>
-    🔗 linkedin.com/in/rupesh-hankare<br>
-    🌐 cloudgenai.ai
-  </div>
+<!-- CONTACT -->
+<div class="section" id="contact">
+<h2>Contact</h2>
+<div class="card">
+📧 rupesh.hankare@gmail.com<br>
+🔗 linkedin.com/in/rupesh-hankare<br>
+🌐 cloudgenai.ai
 </div>
+</div>
+
+<div class="counter" id="counter"></div>
 
 <script>
-// Mobile-optimized Matrix Animation
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
 
-function resizeCanvas() {
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
+/* TYPING */
+const txt="Cybersecurity Leader | CISO | vCISO | SOC Transformation | AI Security";
+let i=0;
+(function type(){
+ if(i<txt.length){
+  document.getElementById("typing").innerHTML+=txt[i++];
+  setTimeout(type,40);
+ }
+})();
+
+/* GSAP */
+gsap.utils.toArray(".section").forEach(sec=>{
+ gsap.from(sec,{opacity:0,y:40,duration:1,scrollTrigger:sec});
+});
+
+/* SKILLS */
+gsap.to(".bar span",{
+ width:(i,el)=>el.dataset.width,
+ duration:1.5,
+ scrollTrigger:"#skills"
+});
+
+/* NAV TRACK */
+const links=document.querySelectorAll("nav a");
+window.addEventListener("scroll",()=>{
+ let fromTop=window.scrollY+100;
+ links.forEach(link=>{
+  let sec=document.querySelector(link.hash);
+  if(sec && sec.offsetTop<=fromTop && sec.offsetTop+sec.offsetHeight>fromTop){
+   link.classList.add("active");
+  } else link.classList.remove("active");
+ });
+});
+
+/* TERMINAL */
+function toggleTerminal(){
+ let t=document.getElementById("terminal");
+ t.style.display=t.style.display==="block"?"none":"block";
 }
-resizeCanvas();
 
-const letters = "01";
-const fontSize = window.innerWidth < 768 ? 10 : 14;
-const columns = canvas.width / fontSize;
-const drops = Array(Math.floor(columns)).fill(1);
+/* COUNTER */
+let v=localStorage.getItem("visits")||0;
+v++; localStorage.setItem("visits",v);
+document.getElementById("counter").innerText="Visitors: "+v;
 
-function draw() {
-  ctx.fillStyle = "rgba(0,0,0,0.06)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+/* RESUME */
+function downloadResume(){
+ let a=document.createElement("a");
+ a.href="resume.pdf";
+ a.download="Rupesh_Hankare_Resume.pdf";
+ a.click();
+}
 
-  ctx.fillStyle = "#00ffcc";
-  ctx.font = fontSize + "px monospace";
+/* MATRIX */
+const canvas=document.getElementById("matrix");
+const ctx=canvas.getContext("2d");
 
-  for (let i = 0; i < drops.length; i++) {
-    const text = letters[Math.floor(Math.random() * letters.length)];
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+function resize(){
+ canvas.width=innerWidth;
+ canvas.height=innerHeight;
+}
+resize();
 
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.97) {
-      drops[i] = 0;
-    }
-    drops[i]++;
+const letters="01";
+const fontSize=14;
+const columns=canvas.width/fontSize;
+const drops=Array(Math.floor(columns)).fill(1);
+
+function draw(){
+ ctx.fillStyle="rgba(0,0,0,0.08)";
+ ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ ctx.fillStyle="#00ffcc";
+ ctx.font=fontSize+"px monospace";
+
+ for(let i=0;i<drops.length;i++){
+  let text=letters[Math.floor(Math.random()*letters.length)];
+  ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+  if(drops[i]*fontSize>canvas.height && Math.random()>0.97){
+   drops[i]=0;
   }
+  drops[i]++;
+ }
 }
 
-setInterval(draw, window.innerWidth < 768 ? 60 : 33);
-window.addEventListener("resize", resizeCanvas);
+setInterval(draw, window.innerWidth < 768 ? 70 : 33);
+window.addEventListener("resize",resize);
+
 </script>
 
 </body>
