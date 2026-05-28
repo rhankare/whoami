@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Rupesh Hankare | Cybersecurity Executive</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ========================================= */
+/* RESET */
+/* ========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:
+    radial-gradient(circle at top left,#0b1d3a 0%,transparent 25%),
+    radial-gradient(circle at bottom right,#0d6efd 0%,transparent 20%),
+    linear-gradient(to bottom,#020617,#030712,#000814);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ========================================= */
+/* MATRIX */
+/* ========================================= */
+
+#matrix{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.matrix-char{
+    position:absolute;
+    color:#66ccff;
+    opacity:0.15;
+    font-size:13px;
+    font-family:'Orbitron',sans-serif;
+    text-shadow:0 0 8px rgba(102,204,255,0.8);
+    animation:matrixFall linear infinite;
+}
+
+@keyframes matrixFall{
+
+    0%{
+        transform:translateY(-100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:0.5;
+    }
+
+    100%{
+        transform:translateY(120vh);
+        opacity:0;
+    }
+
+}
+
+/* ========================================= */
+/* CYBER GRID */
+/* ========================================= */
+
+.cyber-grid{
+    position:fixed;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index:0;
+    opacity:0.15;
+}
+
+/* ========================================= */
+/* GLOW */
+/* ========================================= */
+
+.glow1,
+.glow2{
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:0.18;
+    z-index:0;
+}
+
+.glow1{
+    background:#0d6efd;
+    top:-100px;
+    left:-100px;
+}
+
+.glow2{
+    background:#66ccff;
+    right:-100px;
+    bottom:-100px;
+}
+
+/* ========================================= */
+/* SCANLINE */
+/* ========================================= */
+
+.scanline{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:rgba(102,204,255,0.25);
+    box-shadow:0 0 20px rgba(102,204,255,0.8);
+    animation:scanMove 6s linear infinite;
+    z-index:9999;
+}
+
+@keyframes scanMove{
+
+    0%{
+        top:0;
+    }
+
+    100%{
+        top:100%;
+    }
+
+}
+
+/* ========================================= */
+/* NAVBAR */
+/* ========================================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    z-index:999;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    font-family:'Orbitron',sans-serif;
+}
+
+.logo span{
+    color:#0d6efd;
+}
+
+.navbar ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    color:#66ccff;
+}
+
+/* ========================================= */
+/* GENERAL */
+/* ========================================= */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+section{
+    padding:100px 0;
+}
+
+h2{
+    font-size:42px;
+    margin-bottom:40px;
+    text-align:center;
+    color:#66ccff;
+    font-family:'Orbitron',sans-serif;
+}
+
+p{
+    line-height:1.9;
+    color:#d1d5db;
+}
+
+/* ========================================= */
+/* HERO */
+/* ========================================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid rgba(102,204,255,0.4);
+    padding:12px 24px;
+    border-radius:50px;
+    color:#66ccff;
+    margin-bottom:30px;
+    letter-spacing:2px;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:82px;
+    font-weight:900;
+    line-height:1.1;
+    font-family:'Orbitron',sans-serif;
+    background:linear-gradient(90deg,#ffffff,#66ccff,#0d6efd);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-subtitle{
+    margin-top:30px;
+    font-size:26px;
+    color:#dbeafe;
+}
+
+.hero-desc{
+    max-width:900px;
+    margin:40px auto 0;
+    font-size:18px;
+}
+
+/* ========================================= */
+/* BUTTONS */
+/* ========================================= */
+
+.btn-group{
+    margin-top:50px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 32px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.4s;
+}
+
+.btn-primary{
+    background:#0d6efd;
+    color:white;
+    box-shadow:0 0 20px rgba(13,110,253,0.4);
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px);
+}
+
+.btn-outline{
+    border:1px solid #66ccff;
+    color:#66ccff;
+}
+
+.btn-outline:hover{
+    background:#66ccff;
+    color:black;
+}
+
+/* ========================================= */
+/* TERMINAL */
+/* ========================================= */
+
+.terminal-box{
+    margin-top:60px;
+    background:#020617;
+    border:1px solid rgba(102,204,255,0.3);
+    border-radius:18px;
+    overflow:hidden;
+    text-align:left;
+    box-shadow:0 0 30px rgba(13,110,253,0.15);
+}
+
+.terminal-header{
+    background:#0d6efd;
+    padding:14px 20px;
+    font-weight:bold;
+    font-family:'Orbitron',sans-serif;
+}
+
+.terminal-body{
+    padding:25px;
+    color:#66ffcc;
+    line-height:2;
+    font-family:monospace;
+}
+
+/* ========================================= */
+/* GRID */
+/* ========================================= */
+
+.grid{
+    display:grid;
+    gap:25px;
+}
+
+.grid-2{
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+}
+
+.grid-3{
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
+
+.grid-4{
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+
+/* ========================================= */
+/* GLASS CARD */
+/* ========================================= */
+
+.glass-card{
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(102,204,255,0.12);
+    border-radius:28px;
+    padding:35px;
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.glass-card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.05),
+        transparent
+    );
+    transform:translateX(-100%);
+    transition:0.8s;
+}
+
+.glass-card:hover::before{
+    transform:translateX(100%);
+}
+
+.glass-card:hover{
+    transform:translateY(-12px);
+    border-color:#66ccff;
+    box-shadow:
+    0 0 25px rgba(13,110,253,0.25),
+    0 0 60px rgba(102,204,255,0.1);
+}
+
+.glass-card h3{
+    margin-bottom:15px;
+    color:#66ccff;
+}
+
+/* ========================================= */
+/* TIMELINE */
+/* ========================================= */
+
+.timeline-item{
+    position:relative;
+    padding-left:40px;
+    border-left:3px solid #66ccff;
+    margin-bottom:50px;
+}
+
+.timeline-dot{
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:#66ccff;
+    border-radius:50%;
+    left:-10px;
+    top:5px;
+}
+
+.timeline-item h3{
+    font-size:28px;
+}
+
+.period{
+    color:#66ccff;
+    margin:10px 0;
+}
+
+/* ========================================= */
+/* CONTACT */
+/* ========================================= */
+
+.contact{
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.contact p{
+    margin:15px 0;
+    font-size:18px;
+}
+
+/* ========================================= */
+/* FOOTER */
+/* ========================================= */
+
+.footer{
+    margin-top:40px;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:52px;
+}
+
+.hero-subtitle{
+    font-size:20px;
+}
+
+h2{
+    font-size:34px;
+}
+
+.navbar{
+    flex-direction:column;
+    gap:20px;
+}
+
+.navbar ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="cyber-grid"></div>
+<div class="glow1"></div>
+<div class="glow2"></div>
+<div class="scanline"></div>
+<div id="matrix"></div>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Cloud<span>GenAI</span>
+    </div>
+
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="badge">
+            Cybersecurity Executive • AI Security Strategist
+        </div>
+
+        <h1>Rupesh Hankare</h1>
+
+        <p class="hero-subtitle">
+            Cybersecurity Leader | CISO | vCISO | SOC Transformation | AI Security
+        </p>
+
+        <p class="hero-desc">
+            Executive Cybersecurity Leader with 15+ years of experience leading enterprise-scale cyber defence, SOC transformation, AI-powered security operations, threat intelligence, offensive security, and cyber resilience initiatives across banking, telecom, consulting, and enterprise ecosystems.
+        </p>
+
+        <div class="btn-group">
+
+            <a href="https://www.linkedin.com/in/rupesh-hankare"
+               target="_blank"
+               class="btn btn-primary">
+               Connect on LinkedIn
+            </a>
+
+            <a href="https://cloudgenai.ai"
+               target="_blank"
+               class="btn btn-outline">
+               Explore CloudGenAI
+            </a>
+
+        </div>
+
+        <div class="terminal-box">
+
+            <div class="terminal-header">
+                AI SOC TERMINAL
+            </div>
+
+            <div class="terminal-body">
+
+                > Initializing AI Security Engine... <br>
+                > Threat Intelligence Activated... <br>
+                > Autonomous Detection Enabled... <br>
+                > SIEM & SOAR Modernization Loaded... <br>
+                > AI SOC Framework Operational... <br>
+                > CloudGenAI Ready...
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="grid grid-2">
+
+            <div>
+
+                <h2 style="text-align:left;">
+                    WhoAmI
+                </h2>
+
+                <p>
+                    I specialize in enterprise cybersecurity transformation with deep expertise in SOC modernization, AI-powered detection engineering, cyber resilience, threat intelligence, offensive security, and autonomous security operations.
+                </p>
+
+                <p style="margin-top:20px;">
+                    My mission is to build intelligent automation-driven cyber defence ecosystems that improve operational maturity, analyst productivity, threat visibility, and business resilience.
+                </p>
+
+            </div>
+
+            <div class="grid grid-2">
+
+                <div class="glass-card">SOC Transformation</div>
+                <div class="glass-card">Threat Intelligence</div>
+                <div class="glass-card">Incident Response</div>
+                <div class="glass-card">AI Security</div>
+                <div class="glass-card">SOAR Automation</div>
+                <div class="glass-card">Red Teaming</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TECHNICAL -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <h2>Technical Competency</h2>
+
+        <div class="grid grid-3">
+
+            <div class="glass-card">
+                <h3>SOC Design & Strategy</h3>
+                <p>Enterprise SOC architecture, SOC maturity enhancement and cyber defence modernization.</p>
+            </div>
+
+            <div class="glass-card">
+                <h3>Threat Intelligence & Hunting</h3>
+                <p>Advanced CTI operations, proactive threat hunting and adversary emulation.</p>
+            </div>
+
+            <div class="glass-card">
+                <h3>SOAR & UEBA</h3>
+                <p>Automation-driven incident response and AI-powered behavioural analytics.</p>
+            </div>
+
+            <div class="glass-card">
+                <h3>Incident Response</h3>
+                <p>Major cyber incident investigations, ransomware response and crisis management.</p>
+            </div>
+
+            <div class="glass-card">
+                <h3>Offensive Security</h3>
+                <p>Purple teaming, Red Team operations and enterprise attack simulation.</p>
+            </div>
+
+            <div class="glass-card">
+                <h3>AI Security</h3>
+                <p>Generative AI security, AI SOC modernization and intelligent automation.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ACHIEVEMENTS -->
+
+<section>
+
+    <div class="container">
+
+        <h2>Key Achievements</h2>
+
+        <div class="grid grid-4">
+
+            <div class="glass-card">
+
+                <h1>🏆</h1>
+
+                <h3>Chairman Award</h3>
+
+                <p>
+                    Cyber Defence & Command Center Excellence
+                </p>
+
+            </div>
+
+            <div class="glass-card">
+
+                <h1>🚨</h1>
+
+                <h3>100+ Incident Cases</h3>
+
+                <p>
+                    Enterprise cyber incident response leadership
+                </p>
+
+            </div>
+
+            <div class="glass-card">
+
+                <h1>🛡️</h1>
+
+                <h3>200+ VAPT Programs</h3>
+
+                <p>
+                    Security assessment & remediation initiatives
+                </p>
+
+            </div>
+
+            <div class="glass-card">
+
+                <h1>🎯</h1>
+
+                <h3>15+ Red Team Engagements</h3>
+
+                <p>
+                    Advanced offensive security operations
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATS -->
+
+<section>
+
+    <div class="container">
+
+        <div class="grid grid-4">
+
+            <div class="glass-card" style="text-align:center;">
+
+                <h1 style="font-size:60px;color:#66ccff;">
+                    15+
+                </h1>
+
+                <p>
+                    Years Experience
+                </p>
+
+            </div>
+
+            <div class="glass-card" style="text-align:center;">
+
+                <h1 style="font-size:60px;color:#66ccff;">
+                    200+
+                </h1>
+
+                <p>
+                    Enterprise VAPT Programs
+                </p>
+
+            </div>
+
+            <div class="glass-card" style="text-align:center;">
+
+                <h1 style="font-size:60px;color:#66ccff;">
+                    15+
+                </h1>
+
+                <p>
+                    Red Team Engagements
+                </p>
+
+            </div>
+
+            <div class="glass-card" style="text-align:center;">
+
+                <h1 style="font-size:60px;color:#66ccff;">
+                    75+
+                </h1>
+
+                <p>
+                    Cybersecurity Team Size
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+    <div class="container">
+
+        <h2>Experience Journey</h2>
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <h3>Director – PwC</h3>
+
+            <div class="period">
+                2026 – Present
+            </div>
+
+            <p>
+                Leading large-scale cybersecurity transformation engagements, AI-driven SOC modernization, UEBA implementation, SOAR automation and cyber resilience programs.
+            </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <h3>Aditya Birla Group</h3>
+
+            <div class="period">
+                2018 – 2026
+            </div>
+
+            <p>
+                Led Cyber Defence & Command Center operations, Threat Intelligence, Threat Hunting, SOAR transformation, Red Teaming and Incident Response.
+            </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <h3>Reliance Jio</h3>
+
+            <div class="period">
+                2013 – 2016
+            </div>
+
+            <p>
+                Managed SIEM operations, advanced threat detection, malware investigations and telecom-scale cyber monitoring.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- AI SECTION -->
+
+<section>
+
+    <div class="container">
+
+        <div class="glass-card" style="text-align:center;">
+
+            <h2>AI + Cybersecurity</h2>
+
+            <p style="max-width:900px;margin:auto;">
+                Passionate about integrating Generative AI, autonomous SOC capabilities, AI-driven detection engineering, and intelligent automation into modern cyber defence ecosystems.
+            </p>
+
+            <div class="grid grid-3" style="margin-top:40px;">
+
+                <div class="glass-card">
+                    Generative AI Security
+                </div>
+
+                <div class="glass-card">
+                    AI Agent Automation using n8n
+                </div>
+
+                <div class="glass-card">
+                    Autonomous SOC Vision
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section id="products">
+
+    <div class="container">
+
+        <h2>CloudGenAI Digital Products</h2>
+
+        <div class="grid grid-3">
+
+            <div class="glass-card">
+
+                <h3>AI SOC Framework</h3>
+
+                <p>
+                    Enterprise AI-powered SOC modernization framework with SOAR, UEBA, detection engineering and intelligent automation.
+                </p>
+
+            </div>
+
+            <div class="glass-card">
+
+                <h3>Cybersecurity eBooks</h3>
+
+                <p>
+                    Professional cybersecurity eBooks covering SIEM evasion, SOC playbooks, threat hunting, AI security and offensive security.
+                </p>
+
+            </div>
+
+            <div class="glass-card">
+
+                <h3>CloudGenAI Mentorship</h3>
+
+                <p>
+                    AI-driven cybersecurity mentoring platform helping professionals grow in SOC operations, Threat Hunting and AI Security.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <h2>Contact</h2>
+
+        <p>📧 rupesh.hankare@gmail.com</p>
+
+        <p>🔗 linkedin.com/in/rupesh-hankare</p>
+
+        <p>🌐 cloudgenai.ai</p>
+
+        <p>📍 Mumbai, India</p>
+
+        <div class="footer">
+
+            © 2026 Rupesh Hankare |
+            CloudGenAI - Your Mentor Forever
+
+            <br><br>
+
+            Building AI-Powered Cybersecurity Ecosystems
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+/* ========================================= */
+/* MATRIX EFFECT */
+/* ========================================= */
+
+const matrix = document.getElementById("matrix");
+
+const chars =
+"01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%^&*";
+
+for(let i=0; i<120; i++){
+
+    const div = document.createElement("div");
+
+    div.classList.add("matrix-char");
+
+    div.innerText =
+    chars[Math.floor(Math.random() * chars.length)];
+
+    div.style.left =
+    Math.random() * 100 + "vw";
+
+    div.style.animationDuration =
+    (5 + Math.random() * 10) + "s";
+
+    div.style.animationDelay =
+    (Math.random() * 5) + "s";
+
+    div.style.top = "-20px";
+
+    matrix.appendChild(div);
+
+}
+
+/* ========================================= */
+/* SCROLL REVEAL */
+/* ========================================= */
+
+const revealElements = document.querySelectorAll(
+'.glass-card, .timeline-item'
+);
+
+window.addEventListener('scroll',()=>{
+
+    revealElements.forEach((el)=>{
+
+        const top = el.getBoundingClientRect().top;
+
+        if(top < window.innerHeight - 100){
+
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+
+        }
+
+    });
+
+});
+
+revealElements.forEach((el)=>{
+
+    el.style.opacity = "0";
+
+    el.style.transform = "translateY(60px)";
+
+    el.style.transition = "all 0.8s ease";
+
+});
+
+</script>
+
+</body>
+</html>
