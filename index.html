@@ -1,425 +1,659 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rupesh Hankare | Cybersecurity & AI Leadership</title>
 
-<title>Rupesh Hankare | Cybersecurity Leader</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-:root{
---bg:#070a0f;
---accent:#00ffcc;
---card:rgba(17,24,39,0.75);
---border:rgba(0,255,204,0.15);
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-margin:0;
-font-family:'Inter',sans-serif;
-background:var(--bg);
-color:#e6edf3;
+    background:#020617;
+    color:white;
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+    position:relative;
 }
 
-/* NAV */
-nav{
-position:sticky;
-top:0;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
-display:flex;
-gap:14px;
-padding:10px;
-overflow-x:auto;
-z-index:100;
+/* Animated Grid */
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+    linear-gradient(rgba(0,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.06) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index:-3;
 }
 
-nav a{
-color:#aaa;
-text-decoration:none;
-font-size:13px;
-white-space:nowrap;
+/* Glow */
+
+body::after{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left, rgba(0,255,255,0.12), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(140,0,255,0.18), transparent 35%);
+    z-index:-2;
 }
 
-nav a.active{color:var(--accent);}
+/* Matrix Rain */
 
-/* HERO */
+.matrix{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.matrix span{
+    position:absolute;
+    top:-100vh;
+    color:#00ffff;
+    font-size:14px;
+    opacity:0.3;
+    animation:matrixFall linear infinite;
+    font-family:monospace;
+}
+
+@keyframes matrixFall{
+    0%{
+        transform:translateY(-100vh);
+        opacity:0;
+    }
+    20%{
+        opacity:.5;
+    }
+    100%{
+        transform:translateY(120vh);
+        opacity:0;
+    }
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    position:relative;
+}
+
+/* Hero */
+
 .hero{
-text-align:center;
-padding:60px 20px;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+}
+
+.hero-content{
+    z-index:2;
 }
 
 .hero h1{
-margin:0;
-font-size:32px;
+    font-size:4rem;
+    font-family:'Orbitron',sans-serif;
+    color:#00ffff;
+    text-shadow:
+    0 0 10px #00ffff,
+    0 0 25px #00ffff;
+    margin-bottom:20px;
 }
 
-#typing{
-color:var(--accent);
-margin-top:10px;
-min-height:24px;
-font-size:14px;
+.hero h2{
+    font-size:1.5rem;
+    color:#cbd5e1;
+    margin-bottom:20px;
 }
 
-/* BUTTON */
+.hero p{
+    max-width:850px;
+    margin:auto;
+    line-height:1.9;
+    color:#94a3b8;
+    font-size:1.05rem;
+}
+
+.hero-buttons{
+    margin-top:40px;
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
 .btn{
-display:inline-block;
-margin-top:15px;
-padding:10px 16px;
-border:1px solid var(--accent);
-border-radius:8px;
-cursor:pointer;
+    padding:14px 28px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
 }
 
-.btn:hover{
-background:var(--accent);
-color:#000;
+.btn-primary{
+    background:#00ffff;
+    color:#000;
+    box-shadow:0 0 20px rgba(0,255,255,.4);
 }
 
-/* SECTION */
-.section{
-max-width:1100px;
-margin:auto;
-padding:30px 15px;
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 35px rgba(0,255,255,.8);
 }
 
-.section h2{
-border-left:3px solid var(--accent);
-padding-left:10px;
+.btn-outline{
+    border:1px solid #00ffff;
+    color:#00ffff;
 }
 
-/* CARD */
-.card{
-background:var(--card);
-padding:16px;
-border-radius:12px;
-margin:10px 0;
-border:1px solid var(--border);
+.btn-outline:hover{
+    background:#00ffff;
+    color:black;
 }
 
-/* GRID */
+/* Section */
+
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    color:#00ffff;
+    font-family:'Orbitron';
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#94a3b8;
+}
+
+/* Glass Cards */
+
 .grid{
-display:grid;
-gap:12px;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
 }
 
-/* SKILL BAR */
-.skill-bar{margin:10px 0;}
-.bar{height:6px;background:#111;border-radius:10px;overflow:hidden;}
-.bar span{display:block;height:100%;width:0;background:var(--accent);}
-
-/* TERMINAL */
-.terminal{
-display:none;
-background:#000;
-color:#00ff00;
-font-family:monospace;
-padding:15px;
-margin:10px;
-border-radius:8px;
-overflow-x:auto;
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(0,255,255,.15);
+    backdrop-filter:blur(15px);
+    padding:30px;
+    border-radius:20px;
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
 }
 
-/* COUNTER */
-.counter{
-position:fixed;
-bottom:10px;
-right:10px;
-font-size:11px;
-opacity:0.6;
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#00ffff;
+    box-shadow:0 0 35px rgba(0,255,255,.25);
 }
 
-/* MATRIX */
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
+.card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,255,255,.08),
+    transparent);
+    transform:translateX(-100%);
+    transition:1s;
 }
 
-@media(max-width:768px){
-.hero h1{font-size:26px;}
+.card:hover::before{
+    transform:translateX(100%);
 }
+
+.card h3{
+    margin-top:15px;
+    margin-bottom:15px;
+    color:#00ffff;
+}
+
+.card p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* Skills */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+}
+
+.skill{
+    padding:12px 22px;
+    border:1px solid rgba(0,255,255,.3);
+    border-radius:50px;
+    background:rgba(0,255,255,.08);
+    color:#00ffff;
+    transition:.3s;
+}
+
+.skill:hover{
+    background:#00ffff;
+    color:black;
+    transform:scale(1.05);
+}
+
+/* Timeline */
+
+.timeline{
+    position:relative;
+    margin-top:40px;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    width:2px;
+    background:#00ffff;
+    top:0;
+    bottom:0;
+}
+
+.timeline-item{
+    width:50%;
+    padding:20px 40px;
+    position:relative;
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    left:50%;
+}
+
+.timeline-dot{
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:#00ffff;
+    border-radius:50%;
+    top:30px;
+    right:-10px;
+    box-shadow:0 0 15px #00ffff;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-8px;
+}
+
+.timeline-content{
+    background:rgba(255,255,255,.04);
+    padding:25px;
+    border-radius:18px;
+    border:1px solid rgba(0,255,255,.15);
+}
+
+.timeline-content h3{
+    color:#00ffff;
+    margin-bottom:10px;
+}
+
+.timeline-content span{
+    color:#94a3b8;
+    font-size:.9rem;
+}
+
+/* Footer */
+
+footer{
+    padding:40px 0;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#94a3b8;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.timeline::before{
+    left:10px;
+}
+
+.timeline-item{
+    width:100%;
+    padding-left:40px;
+    padding-right:10px;
+    text-align:left !important;
+    left:0 !important;
+}
+
+.timeline-dot{
+    left:2px !important;
+}
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.hero h2{
+    font-size:1.1rem;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<nav>
-<a href="#who">WhoAmI</a>
-<a href="#skills">Capabilities</a>
-<a href="#areas">Focus</a>
-<a href="#tech">Technical</a>
-<a href="#achievements">Achievements</a>
-<a href="#exp">Experience</a>
-<a href="#contact">Contact</a>
-<a onclick="toggleTerminal()">Terminal</a>
-</nav>
+<div class="matrix" id="matrix"></div>
 
-<canvas id="matrix"></canvas>
+<!-- HERO -->
 
-<div class="hero">
+<section class="hero">
+<div class="container">
+<div class="hero-content">
+
 <h1>Rupesh Hankare</h1>
-<div id="typing"></div>
 
+<h2>CISO • vCISO • Cyber Defence Leader • AI Security Strategist</h2>
+
+<p>
+Cybersecurity executive with extensive experience leading enterprise-scale
+SOC transformation, threat intelligence, incident response, AI-driven cyber defense,
+offensive security operations, cyber resilience programs, and executive advisory initiatives.
+Passionate about building autonomous security ecosystems and modern cyber defense architectures
+for large enterprises and critical industries.
+</p>
+
+<div class="hero-buttons">
+<a href="#" class="btn btn-primary">Explore Portfolio</a>
+<a href="https://rhankare.github.io/whoami/" class="btn btn-outline">WhoAmI</a>
 </div>
 
-<div class="terminal" id="terminal">
-> whoami  
-Cybersecurity Leader | SOC Transformation | Threat Intelligence
-| Incident Response | Red Teaming | Vulnerability Management |
-Digital Risk | AI-Driven Security
+</div>
+</div>
+</section>
+
+<!-- CAPABILITIES -->
+
+<section>
+<div class="container">
+
+<div class="section-title">
+<h2>Cybersecurity Expertise</h2>
+<p>Enterprise cyber defense leadership across AI, SOC, Threat Intelligence & Offensive Security</p>
 </div>
 
-<!-- WHO -->
-<div class="section" id="who">
-<h2>WhoAmI</h2>
+<div class="grid">
+
 <div class="card">
-Insightful and results-driven cybersecurity leader with 15+ years of experience
-leading defence initiatives across telecom and large conglomerates (ABG). Expert
-in building SOCs, Vulnerability Management, Threat Intelligence, Digital Fraud
-Detection with Deep & Dark Web monitoring and Offensive Security Programs.
-Proven track record in driving cybersecurity transformations, automating
-response, and aligning security with business risk to enhance detection, response,
-and fraud prevention.
+<h3>🛡️ CISO & vCISO Leadership</h3>
+<p>
+Driving enterprise cybersecurity strategy, governance, cyber resilience,
+risk management, and board-level security leadership across complex organizations.
+</p>
+</div>
 
+<div class="card">
+<h3>🚨 SOC Transformation</h3>
+<p>
+Building next-generation AI-driven SOCs with SIEM, SOAR, UEBA,
+automation, detection engineering, and cyber fusion capabilities.
+</p>
+</div>
+
+<div class="card">
+<h3>🤖 AI Security</h3>
+<p>
+Leading AI-powered cyber defense initiatives focused on autonomous SOC,
+behavior analytics, GenAI security governance, and intelligent threat detection.
+</p>
+</div>
+
+<div class="card">
+<h3>🎯 Threat Intelligence</h3>
+<p>
+Advanced threat hunting, cyber intelligence operations,
+APT investigations, ASM, CTEM, and proactive cyber defense engineering.
+</p>
+</div>
+
+<div class="card">
+<h3>⚔️ Offensive Security</h3>
+<p>
+Red teaming, VAPT leadership, attack simulation,
+security validation, and enterprise adversarial security assessments.
+</p>
+</div>
+
+<div class="card">
+<h3>🏢 Enterprise Cyber Defense</h3>
+<p>
+Delivering large-scale cybersecurity modernization programs,
+incident response leadership, and cyber risk transformation.
+</p>
+</div>
 
 </div>
 </div>
+</section>
 
 <!-- SKILLS -->
-<div class="section" id="skills">
+
+<section>
+<div class="container">
+
+<div class="section-title">
 <h2>Core Capabilities</h2>
-
-<div class="grid">
-
-<div class="card">
-<b>Security Leadership & Strategy</b>
-<div class="skill-bar">Cybersecurity Strategy<div class="bar"><span data-width="95%"></span></div></div>
-<div class="skill-bar">Risk Management & Governance<div class="bar"><span data-width="92%"></span></div></div>
-<div class="skill-bar">vCISO Advisory<div class="bar"><span data-width="90%"></span></div></div>
 </div>
 
-<div class="card">
-<b>Security Operations & Incident Response</b>
-<div class="skill-bar">SOC Transformation<div class="bar"><span data-width="95%"></span></div></div>
-<div class="skill-bar">Incident Response Leadership<div class="bar"><span data-width="93%"></span></div></div>
-<div class="skill-bar">Threat Detection & Monitoring<div class="bar"><span data-width="91%"></span></div></div>
-</div>
-
-<div class="card">
-<b>Threat Intelligence & Offensive Security</b>
-<div class="skill-bar">Threat Intelligence<div class="bar"><span data-width="96%"></span></div></div>
-<div class="skill-bar">Threat Hunting<div class="bar"><span data-width="92%"></span></div></div>
-<div class="skill-bar">Red / Purple Teaming<div class="bar"><span data-width="88%"></span></div></div>
-</div>
-
-<div class="card">
-<b>Security Engineering & Platforms</b>
-<div class="skill-bar">SIEM / SOAR<div class="bar"><span data-width="90%"></span></div></div>
-<div class="skill-bar">UEBA & Analytics<div class="bar"><span data-width="87%"></span></div></div>
-<div class="skill-bar">Security Automation<div class="bar"><span data-width="89%"></span></div></div>
-</div>
-
-<div class="card">
-<b>Vulnerability & Risk Programs</b>
-<div class="skill-bar">Vulnerability Management<div class="bar"><span data-width="94%"></span></div></div>
-<div class="skill-bar">Third-Party Risk (TPRM)<div class="bar"><span data-width="88%"></span></div></div>
-<div class="skill-bar">Attack Surface Management<div class="bar"><span data-width="86%"></span></div></div>
-</div>
-
-<div class="card">
-<b>Emerging & Advanced Security</b>
-<div class="skill-bar">AI Security<div class="bar"><span data-width="85%"></span></div></div>
-<div class="skill-bar">Digital Fraud & Brand Protection<div class="bar"><span data-width="90%"></span></div></div>
-<div class="skill-bar">Cyber Threat Intelligence Platforms<div class="bar"><span data-width="91%"></span></div></div>
+<div class="skills">
+<div class="skill">SOC Transformation</div>
+<div class="skill">Threat Intelligence</div>
+<div class="skill">Incident Response</div>
+<div class="skill">AI Security</div>
+<div class="skill">SOAR & Automation</div>
+<div class="skill">UEBA & Analytics</div>
+<div class="skill">Red Teaming</div>
+<div class="skill">Brand Protection</div>
+<div class="skill">ASM & CTEM</div>
+<div class="skill">vCISO Advisory</div>
 </div>
 
 </div>
-</div>
-
-<!-- AREAS -->
-<div class="section" id="areas">
-<h2>Areas of Interest</h2>
-<div class="grid">
-<div class="card">vCISO</div>
-<div class="card">Leadership</div>
-<div class="card">Security Operations & Incident Response</div>
-<div class="card">Threat Intelligence & Hunting</div>
-<div class="card">Vulnerability Management</div>
-<div class="card">Offensive Security (Red Team)</div>
-<div class="card">Risk Assessment & Leadership</div>
-<div class="card">Digital Fraud Detection & Prevention - Brand Protection</div>
-
-<div class="card">Risk Assessment / Impact Analysis</div>
-<div class="card">Perimeter & Endpoint Security</div>
-<div class="card">Risk & Exception Management</div>
-<div class="card">Cyber Defence Budget & Optimization</div>
-<div class="card">Portfolio Management</div>
-<div class="card">Project Management and Team</div>
-<div class="card">3rd Party Risk Assessment</div>
-</div>
-</div>
-
-<!-- TECH -->
-<div class="section" id="tech">
-<h2>Technical Competency</h2>
-<div class="grid">
-<div class="card">SOC Design & Strategy (Built/migrated 3 SOCs from scratch, 2 RFPs led)</div>
-<div class="card">Threat Intelligence & Threat Hunting built & Defined Strong Governance</div>
-<div class="card">Security Automation (SOAR) & UEBA Deployment</div>
-<div class="card">Incident Response Strategy & Governance</div>
-<div class="card">Purple Team Formation & Offensive Security</div>
-<div class="card">Vulnerability Management Program Ownership</div>
-<div class="card">Digital Fraud, Brand Protection, ASM & CTEM</div>
-<div class="card">SIEM & Security Technology Evaluation</div>
-<div class="card">Deception Technology Implementation strategy</div>
-
-</div>
+</section>
 
 <!-- ACHIEVEMENTS -->
-<div class="section" id="achievements">
-<h2>Key Achievements</h2>
+
+<section>
+<div class="container">
+
+<div class="section-title">
+<h2>Achievements</h2>
+<p>Enterprise cybersecurity excellence & leadership milestones</p>
+</div>
+
 <div class="grid">
-<div class="card">🏆 Chairman Award – Cyber Defence Centre</div>
-<div class="card">🚨 100+ Incident Response Cases</div>
-<div class="card">🛡️ 200+ Vulnerability Programs</div>
-<div class="card">🎯 15+ Red Team Engagements</div>
+
+<div class="card">
+<h3>🏆 Chairman Award</h3>
+<p>Recognized for excellence in Cyber Defence Center leadership and innovation.</p>
 </div>
+
+<div class="card">
+<h3>🚨 100+ Incident Cases</h3>
+<p>Led enterprise incident response and cyber crisis management operations.</p>
 </div>
+
+<div class="card">
+<h3>🛡️ 200+ VAPT Programs</h3>
+<p>Executed large-scale security assessments and remediation programs.</p>
+</div>
+
+<div class="card">
+<h3>🎯 15+ Red Team Engagements</h3>
+<p>Directed offensive security simulations and adversarial testing operations.</p>
+</div>
+
+</div>
+
+</div>
+</section>
 
 <!-- EXPERIENCE -->
-<div class="section" id="exp">
-<h2>Experience</h2>
 
-<div class="card"><b>Director – PwC (2026–Present)</b><br>Leading enterprise cybersecurity programs.</div>
+<section>
+<div class="container">
 
-<div class="card"><b>Aditya Birla Group (2018–2026)</b><br>
-Head of Vulnerability Management, Offensive Security, Threat Intelligence & Incident Response, Brand Protection.<br>
-Built Cyber Defence & Command Center, SOC transformation, SOAR, UEBA.
+<div class="section-title">
+<h2>Experience Journey</h2>
+<p>Cybersecurity leadership evolution</p>
 </div>
 
-<div class="card"><b>CISO – Aditya Birla Group (2016–2018)</b><br>
-Enterprise cybersecurity strategy, risk management, and security operations leadership.
-</div>
+<div class="timeline">
 
-<div class="card"><b>Reliance Jio (2013–2016)</b><br>SIEM operations, threat monitoring, investigations.</div>
-
-<div class="card"><b>Security Consultant at Wipro InfoTech, Mumbai (August 2012 - November 2013)</b><br>SIEM operations, Threat Monitoring, Investigations.</div>
-<div class="card"><b>Senior Security Analyst at Capgemini India Pvt Limited, Mumbai (August 2010 – August 2012)</b><br>SIEM operations- Monitoring, Detection and Remediation (L1 Security Analyst)</div>
-
-</div>
-
-<!-- CONTACT -->
-<div class="section" id="contact">
-<h2>Contact</h2>
-<div class="card">
-📧 rupesh.hankare@gmail.com<br>
-🔗 linkedin.com/in/rupesh-hankare<br>
-🌐 cloudgenai.ai
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<h3>Director – PwC</h3>
+<span>2026 – Present</span>
+<p>
+Leading enterprise cybersecurity transformation programs,
+AI-driven SOC modernization, and cyber resilience initiatives.
+</p>
 </div>
 </div>
 
-<div class="counter" id="counter"></div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<h3>Aditya Birla Group</h3>
+<span>2018 – 2026</span>
+<p>
+Led Cyber Defence & Command Center, Threat Intelligence,
+SOAR, UEBA, Vulnerability Management, and Brand Protection.
+</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<h3>CISO – Aditya Birla Group</h3>
+<span>2016 – 2018</span>
+<p>
+Directed enterprise cybersecurity governance,
+risk management, security operations, and cyber strategy.
+</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<h3>Reliance Jio</h3>
+<span>2013 – 2016</span>
+<p>
+Managed SIEM operations, APT investigations,
+telecom security operations, and threat monitoring.
+</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>© 2026 Rupesh Hankare | Cybersecurity • AI • Cyber Defence Leadership</p>
+</div>
+</footer>
 
 <script>
 
-/* TYPING */
-const txt="Cybersecurity Leader | CISO | vCISO | SOC Transformation | AI Security";
-let i=0;
-(function type(){
- if(i<txt.length){
-  document.getElementById("typing").innerHTML+=txt[i++];
-  setTimeout(type,40);
- }
-})();
+/* MATRIX RAIN */
 
-/* GSAP */
-gsap.utils.toArray(".section").forEach(sec=>{
- gsap.from(sec,{opacity:0,y:40,duration:1,scrollTrigger:sec});
+const matrix = document.getElementById('matrix');
+
+const chars = "01アイウエオカキクケコサシスセソABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+for(let i=0;i<120;i++){
+
+    const span = document.createElement('span');
+
+    span.innerText = chars[Math.floor(Math.random()*chars.length)];
+
+    span.style.left = Math.random()*100 + 'vw';
+
+    span.style.animationDuration = (5 + Math.random()*10) + 's';
+
+    span.style.animationDelay = Math.random()*5 + 's';
+
+    span.style.fontSize = (10 + Math.random()*18) + 'px';
+
+    matrix.appendChild(span);
+}
+
+/* SCROLL ANIMATION */
+
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+entry.target.style.opacity='1';
+entry.target.style.transform='translateY(0)';
+}
+
 });
 
-/* SKILLS */
-gsap.to(".bar span",{
- width:(i,el)=>el.dataset.width,
- duration:1.5,
- scrollTrigger:"#skills"
+},{threshold:0.2});
+
+cards.forEach(card => {
+
+card.style.opacity='0';
+card.style.transform='translateY(40px)';
+card.style.transition='0.8s ease';
+
+observer.observe(card);
+
 });
-
-/* NAV TRACK */
-const links=document.querySelectorAll("nav a");
-window.addEventListener("scroll",()=>{
- let fromTop=window.scrollY+100;
- links.forEach(link=>{
-  let sec=document.querySelector(link.hash);
-  if(sec && sec.offsetTop<=fromTop && sec.offsetTop+sec.offsetHeight>fromTop){
-   link.classList.add("active");
-  } else link.classList.remove("active");
- });
-});
-
-/* TERMINAL */
-function toggleTerminal(){
- let t=document.getElementById("terminal");
- t.style.display=t.style.display==="block"?"none":"block";
-}
-
-/* COUNTER */
-let v=localStorage.getItem("visits")||0;
-v++; localStorage.setItem("visits",v);
-document.getElementById("counter").innerText="Visitors: "+v;
-
-/* RESUME */
-function downloadResume(){
- let a=document.createElement("a");
- a.href="resume.pdf";
- a.download="Rupesh_Hankare_Resume.pdf";
- a.click();
-}
-
-/* MATRIX */
-const canvas=document.getElementById("matrix");
-const ctx=canvas.getContext("2d");
-
-function resize(){
- canvas.width=innerWidth;
- canvas.height=innerHeight;
-}
-resize();
-
-const letters="01";
-const fontSize=14;
-const columns=canvas.width/fontSize;
-const drops=Array(Math.floor(columns)).fill(1);
-
-function draw(){
- ctx.fillStyle="rgba(0,0,0,0.08)";
- ctx.fillRect(0,0,canvas.width,canvas.height);
-
- ctx.fillStyle="#00ffcc";
- ctx.font=fontSize+"px monospace";
-
- for(let i=0;i<drops.length;i++){
-  let text=letters[Math.floor(Math.random()*letters.length)];
-  ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-
-  if(drops[i]*fontSize>canvas.height && Math.random()>0.97){
-   drops[i]=0;
-  }
-  drops[i]++;
- }
-}
-
-setInterval(draw, window.innerWidth < 768 ? 70 : 33);
-window.addEventListener("resize",resize);
 
 </script>
 
 </body>
 </html>
+```
